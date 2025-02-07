@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function Explore() {
+export default function Social() {
   return (
     <View>
-      <Text>Explore</Text>
+      <Text>Social</Text>
     </View>
   )
 }

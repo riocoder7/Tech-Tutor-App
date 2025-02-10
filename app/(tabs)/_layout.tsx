@@ -3,15 +3,31 @@ import React from 'react'
 import { Tabs } from 'expo-router'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Colors from '@/constants/Colors';
 export default function TabLayout() {
   return (
-    <Tabs>
+    <Tabs screenOptions={{
+        tabBarStyle: {
+            backgroundColor: 'white',
+            elevation: 0, // Remove shadow on Android
+            shadowOpacity: 0, // Remove shadow on iOS
+            borderTopWidth: 0, // Remove the border if necessary
+          },
+          headerStyle: {
+            backgroundColor: 'white',  // Optional: Set header background color
+            elevation: 0,  // Remove shadow on Android
+            shadowOpacity: 0,  // Set shadow height to 0
+          },
+          
+            // Tab bar background
+      }}>
         <Tabs.Screen name='Home' options={{
+            
             headerTitle: () => (
                 <Text style={{
                     fontSize:26,
                     fontFamily:'outfit-bold',
-                    color:'blue',
+                    color:Colors.primary,
                 }}>TechTutor</Text>
             ),
             headerRight: () => (

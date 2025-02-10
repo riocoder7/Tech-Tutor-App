@@ -34,7 +34,7 @@ const CourseList: React.FC = () => {
 
   const renderCourseItem = ({ item }: { item: any }) => (
     <TouchableOpacity style={styles.courseItem}>
-      <Image source={require('@/assets/images/logo.png')} style={styles.courseImage} />
+      <Image source={require('@/assets/images/java.png')} style={styles.courseImage} />
       <Text style={styles.courseTitle}>{item.courseTitle || 'No Title Available'}</Text>
       <View style={{flexDirection:'row',marginLeft:7,marginBottom:7}}>
       <Ionicons name="book-outline" size={20} color={Colors.primary} />
@@ -47,7 +47,7 @@ const CourseList: React.FC = () => {
   
   const renderCourseItemp = ({ item }: { item: any }) => (
     <TouchableOpacity style={styles.courseItemp}>
-      <Image source={require('@/assets/images/logo.png')} style={styles.courseImagep} />
+      <Image source={require('@/assets/images/java.png')} style={styles.courseImagep} />
     <View>
       <Text style={styles.courseTitlep}>{item.courseTitle || 'No Title Available'}</Text>
       <View style={{flexDirection:'row',marginLeft:7,marginBottom:7}}>

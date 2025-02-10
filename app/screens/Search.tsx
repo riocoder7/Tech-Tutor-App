@@ -98,7 +98,7 @@ const Index: React.FC = () => {
         )}
         renderItem={({ item }) => (
             <TouchableOpacity style={styles.courseItem}>
-      <Image source={require('@/assets/images/logo.png')} style={styles.courseImage} />
+      <Image source={require('@/assets/images/java.png')} style={styles.courseImage} />
       <Text style={styles.courseTitle}>{item.courseTitle || 'No Title Available'}</Text>
       <View style={{flexDirection:'row',marginLeft:7,marginBottom:7}}>
       <Ionicons name="book-outline" size={20} color={Colors.primary} />
@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   searchInput: {
+    fontSize:16,
     fontFamily:'outfit',
     height: 40,
     borderColor:Colors.gray,

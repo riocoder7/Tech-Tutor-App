@@ -130,7 +130,6 @@ const styles = StyleSheet.create({
   searchInput: {
     fontSize:16,
     fontFamily:'outfit',
-    height: 40,
     borderColor:Colors.gray,
     borderWidth: 1,
     borderRadius: 8,
@@ -199,7 +198,7 @@ const styles = StyleSheet.create({
   },
   noResultsIcon:{
     textAlign: "center",
-    marginTop:50,
+    marginTop:100,
     marginBottom:10,
   },
   arrow:{

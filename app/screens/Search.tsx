@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
       borderColor: '#eaecee',
       borderRadius: 8,
       marginHorizontal:10,
-      marginVertical:15,
+      marginTop:25,
       width: 150, 
     },
     courseImage: {

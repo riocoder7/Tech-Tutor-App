@@ -42,10 +42,10 @@ export default function TabLayout() {
             tabBarIcon: ({color,size})=> <Ionicons name="paper-plane-outline" size={size} color={color} />,
             tabBarLabel: 'Explore'
         }}/>
-        <Tabs.Screen name='Social' options={{
-            tabBarStyle: { display: "none" },
-            tabBarIcon: ({color,size})=> <Ionicons name="share-social-outline" size={size} color={color} />,
-            tabBarLabel: 'Social'
+        <Tabs.Screen name='Progress' options={{
+            // tabBarStyle: { display: "none" },
+            tabBarIcon: ({color,size})=> <MaterialCommunityIcons name="google-analytics" size={size} color={color} />,
+            tabBarLabel: 'Progress'
         }}/>
         <Tabs.Screen name='Profile' options={{
             tabBarStyle: { display: "none" },

@@ -6,6 +6,7 @@ import { auth } from "@/config/firebaseConfig";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
 import { UserDetailContext } from "@/context/UserDetailContext";
+import Colors from "@/constants/Colors";
 
 const Index: React.FC = () => {
   const router = useRouter();
@@ -55,18 +56,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:'white',
+    backgroundColor:Colors.white,
   },
   text: {
     fontSize: 24,
     fontFamily: "outfit-bold",
   },
   logo: {
-    width: 140,
-    height: 140,
+    width: 120,
+    height: 120,
     borderRadius: 20,
-    borderWidth: 1,
-    borderColor: "lightblue",
     marginBottom: 20,
   },
   subtitle: {

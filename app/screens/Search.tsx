@@ -165,8 +165,8 @@ const styles = StyleSheet.create({
   },
   courseItem: {
       backgroundColor:Colors.bgColor,
-      borderWidth: 1,
-      borderColor: '#eaecee',
+      // borderWidth: 1,
+      // borderColor: '#eaecee',
       borderRadius: 8,
       marginHorizontal:10,
       marginTop:25,

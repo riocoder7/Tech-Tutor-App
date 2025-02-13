@@ -1,11 +1,11 @@
 export default{
   primary:'#1E90FF',
-  white:'#fff',
+  white:'#fbfcfc',
   gray:'#d7dbdd',
   dgray:'#2c3e50',
   bgColor:'#f2f3f4',
-  black:'#000',
-  green:'#0CD650'
+  black:'#212f3d',
+  green:'#28b463'
 
 
 }

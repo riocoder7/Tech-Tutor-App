@@ -8,6 +8,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '@/config/firebaseConfig';
 import {UserDetailContext} from '@/context/UserDetailContext';
 import { User } from "firebase/auth";
+import Colors from '@/constants/Colors';
 export default function SignUp() {
   const router = useRouter();
   const [fullName, setFullName] = useState('');
@@ -71,14 +72,14 @@ const SaveUser=async(user: User)=>{
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
-  logo: { width: 100, height: 50 },
-  title: { marginTop: 30, fontSize: 24, fontFamily: 'outfit-bold' },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20,backgroundColor:Colors.white },
+  logo: { width: 100, height: 100,borderRadius:10, },
+  title: { marginTop: 10, fontSize: 24, fontFamily: 'outfit-bold' },
   subtitle: { fontSize: 16, fontFamily: 'outfit', color: 'gray', marginBottom: 10 },
   textInput: { width: '90%', borderWidth: 1, borderRadius: 10, padding: 10, margin: 10, fontSize: 16, color: 'gray' },
-  button: { padding: 10, backgroundColor: 'blue', width: '90%', borderRadius: 10, justifyContent: 'center', marginTop: 5 },
+  button: { padding: 10, backgroundColor: Colors.primary, width: '90%', borderRadius: 10, justifyContent: 'center', marginTop: 5 },
   buttonText: { fontSize: 20, color: 'white', fontFamily: 'outfit-bold', textAlign: 'center' },
   signInContainer: { flexDirection: 'row', marginTop: 5 },
   signInText: { fontFamily: 'outfit' },
-  signInLink: { color: 'blue', fontFamily: 'outfit-bold', marginLeft: 5 },
+  signInLink: { color: Colors.primary, fontFamily: 'outfit-bold', marginLeft: 5 },
 });

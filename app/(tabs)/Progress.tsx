@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableOpacity,ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity,ActivityIndicator ,Image} from 'react-native';
 import { useRouter } from 'expo-router';
 import { auth, db } from '@/config/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
@@ -105,8 +105,34 @@ export default function CourseProgressScreen() {
                   })
                 }
               >
-                <Text style={styles.courseTitle}>{course.courseTitle}</Text>
-                <Text style={styles.courseDescription}>{course.description}</Text>
+                <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom:10,
+        backgroundColor:Colors.bgColor,
+        borderRadius: 8,
+      }}
+    >
+      <Image
+        source={require('@/assets/images/java.png')}
+        style={{ width: 100, height: '100%', borderRadius: 8, marginRight: 15 }}
+      />
+      <View style={{ flex: 1 }}>
+        <Text style={{ fontSize: 18, fontFamily:'outfit-bold'}}>{course.courseTitle}</Text>
+        <Text numberOfLines={2} style={{ color: '#555', fontFamily:'outfit' }}>
+          {course.description}
+        </Text>
+        <View style={{ flexDirection: 'row',  marginVertical: 7 }}>
+        <Ionicons name="book-outline" size={20} color={Colors.primary} />
+        <Text style={{fontSize: 14,fontFamily: 'outfit',color: Colors.primary,marginLeft: 5,}}>
+          {course.noOfChapter ? `${course.noOfChapter} Chapters` : 'No Chapters Available'}
+        </Text>
+      </View>
+      </View>
+    </View>
+                {/* <Text style={styles.courseTitle}>{course.courseTitle}</Text>
+                <Text numberOfLines={2} style={styles.courseDescription}>{course.description}</Text> */}
                 {/* Custom Progress Bar */}
                 <View style={styles.progressBarBackground}>
                   <View style={[styles.progressBarFill, { width: `${progressPercentage * 100}%` }]} />
@@ -132,8 +158,9 @@ const styles = StyleSheet.create({
     marginTop:10
   },
   courseContainer: {
+    marginHorizontal:10,
     marginBottom: 20,
-    padding: 15,
+    padding: 10,
     backgroundColor: Colors.bgColor,
     borderRadius: 10,
     borderWidth: 1,
@@ -142,16 +169,18 @@ const styles = StyleSheet.create({
   courseTitle: {
     fontSize: 20,
     fontFamily: 'outfit-bold',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   courseDescription: {
     fontSize: 16,
     marginBottom: 10,
-    color: Colors.gray,
+    color: Colors.dgray,
   },
   progressBarBackground: {
-    height: 6,
-    backgroundColor: Colors.gray,
+    height: 8,
+    backgroundColor: 'white',
+    borderWidth:1,
+    borderColor:Colors.primary,
     borderRadius: 5,
     marginBottom: 10,
     overflow: 'hidden',
@@ -163,7 +192,7 @@ const styles = StyleSheet.create({
   },
   progressText: {
     fontSize: 16,
-    color: Colors.gray,
+    color: Colors.primary,
   },
   emptyText: {
     fontSize: 18,

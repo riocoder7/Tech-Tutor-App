@@ -5,6 +5,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Entypo from '@expo/vector-icons/Entypo';
 
 interface Course {
   courseTitle: string;
@@ -106,8 +107,7 @@ export default function EnrolledCoursesScreen() {
     paddingLeft:15,
     backgroundColor: "white",
     zIndex: 10,}}>
-        <View style={{flexDirection: "row",
-    marginBottom:10,}}>
+        <View style={{flexDirection: "row",}}>
         <TouchableOpacity onPress={() => router.back()}>
         <Ionicons name="arrow-back" size={26} color="black" />
         </TouchableOpacity >
@@ -115,15 +115,22 @@ export default function EnrolledCoursesScreen() {
         </View>
       </View>
       {enrolledCourses.length === 0 ? (
-        <Text style={{ textAlign: 'center', fontSize: 18, marginTop: 20 }}>
-          You are not enrolled in any courses yet.
-        </Text>
+        <View style={{
+          justifyContent: 'center',
+          alignItems: 'center',marginTop:'60%'}}>
+          <Entypo style={{
+  }} name="open-book" size={100} color="gray" />
+        <Text style={{fontFamily:'outfit-bold',fontSize: 24,
+  color: "#888", textAlign:'center'}}> You are not enrolled in any courses yet.</Text>
+          </View>
       ) : (
+        <View style={{marginTop:60}}>
         <FlatList
           data={enrolledCourses}
           renderItem={renderCourseItem}
           keyExtractor={(item) => item.courseTitle}
         />
+        </View>
       )}
     </View>
   );

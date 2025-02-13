@@ -6,6 +6,5 @@ export default{
   bgColor:'#f2f3f4',
   black:'#212f3d',
   green:'#28b463'
-
-
+  
 }

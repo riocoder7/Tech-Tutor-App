@@ -4,6 +4,7 @@ import { Tabs } from 'expo-router'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Colors from '@/constants/Colors';
+
 export default function TabLayout() {
   return (
     <Tabs screenOptions={{
@@ -44,6 +45,19 @@ export default function TabLayout() {
         }}/>
         <Tabs.Screen name='Progress' options={{
             // tabBarStyle: { display: "none" },
+            // headerTitle: () => (
+            //             <View style={{flexDirection: "row",}}>
+            //             <TouchableOpacity onPress={() => router.back()}>
+            //             <Ionicons name="arrow-back" size={26} color="black" />
+            //             </TouchableOpacity >
+            //             <Text style={{marginLeft:5,fontSize:20,fontFamily:'outfit'}}>My Courses</Text>
+            //             </View>
+            // ),
+            headerLeft: ()=>(
+                <View style={{marginLeft:5}}>
+                <MaterialCommunityIcons name="google-analytics" size={24} color={Colors.black} />
+                </View>
+            ),
             tabBarIcon: ({color,size})=> <MaterialCommunityIcons name="google-analytics" size={size} color={color} />,
             tabBarLabel: 'Progress'
         }}/>

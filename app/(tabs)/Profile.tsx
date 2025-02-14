@@ -20,10 +20,10 @@ export default function SignOutScreen() {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => router.push('/Progress')}>
+      <TouchableOpacity onPress={() => router.replace('/Progress')}>
         <Text>Progress</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.push('../components/courseProgress')}>
+      <TouchableOpacity onPress={() => router.replace('../components/courseProgress')}>
         <Text>Progress</Text>
       </TouchableOpacity>
       <Text style={styles.heading}>Are you sure you want to sign out?</Text>

@@ -8,6 +8,8 @@ import Colors from '@/constants/Colors';
 export default function TabLayout() {
   return (
     <Tabs screenOptions={{
+        tabBarActiveTintColor: Colors.primary,  // Active icon color
+        tabBarInactiveTintColor: Colors.black,  
         tabBarStyle: {
             backgroundColor: 'white',
             elevation: 0, // Remove shadow on Android
@@ -15,7 +17,7 @@ export default function TabLayout() {
             borderTopWidth: 0, // Remove the border if necessary
           },
           headerStyle: {
-            backgroundColor: 'white',  // Optional: Set header background color
+            // backgroundColor: Col,  // Optional: Set header background color
             elevation: 0,  // Remove shadow on Android
             shadowOpacity: 0,  // Set shadow height to 0
           },
@@ -33,7 +35,7 @@ export default function TabLayout() {
             ),
             headerRight: () => (
                 <TouchableOpacity style={{marginRight:15}}>
-                    <MaterialCommunityIcons name="bell-outline" size={24} color="black" />
+                    <MaterialCommunityIcons name="bell-outline" size={24} color={Colors.black} />
                 </TouchableOpacity>
             ),
             tabBarIcon: ({color,size})=> <Ionicons name="home-outline" size={size} color={color} />,
@@ -44,15 +46,6 @@ export default function TabLayout() {
             tabBarLabel: 'Explore'
         }}/>
         <Tabs.Screen name='Progress' options={{
-            // tabBarStyle: { display: "none" },
-            // headerTitle: () => (
-            //             <View style={{flexDirection: "row",}}>
-            //             <TouchableOpacity onPress={() => router.back()}>
-            //             <Ionicons name="arrow-back" size={26} color="black" />
-            //             </TouchableOpacity >
-            //             <Text style={{marginLeft:5,fontSize:20,fontFamily:'outfit'}}>My Courses</Text>
-            //             </View>
-            // ),
             headerLeft: ()=>(
                 <View style={{marginLeft:5}}>
                 <MaterialCommunityIcons name="google-analytics" size={24} color={Colors.black} />

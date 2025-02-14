@@ -5,6 +5,6 @@ export default{
   dgray:'#2c3e50',
   bgColor:'#f2f3f4',
   black:'#212f3d',
-  green:'#28b463'
-  
+  green:'#28b463',
+  bluebg:'#e2ffff',
 }

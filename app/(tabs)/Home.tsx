@@ -11,7 +11,7 @@ export default function Home() {
   // Render function for each item in the FlatList
   const renderItem = ({ item }: { item: any }) => ( // Specify the type for item
     <View style={{backgroundColor:'white'}}>
-    <TouchableOpacity onPress={() => router.push('/screens/Search')} style={styles.SearchBar}>
+    <TouchableOpacity onPress={() => router.replace('/screens/Search')} style={styles.SearchBar}>
       <Ionicons name="search-outline" size={24} color="gray" />
       <Text style={{ fontFamily: 'outfit', paddingTop: 2, marginLeft: 3, fontSize: 16, color: 'gray' }}>
         Search
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: Colors.bgColor,
     padding: 8,
+    marginTop:10,
     marginHorizontal: 8,
     borderRadius: 10,
     elevation: 1,

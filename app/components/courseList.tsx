@@ -47,7 +47,7 @@ const CourseList: React.FC = () => {
 
     // If the course exists in enrolledCourses, redirect to Course Details screen
     if (docSnap.exists()) {
-      router.push({
+      router.replace({
         pathname: '/courseView/courseDetail', // Redirect to Course Detail Screen
         params: {
           courseParams: JSON.stringify(item),
@@ -55,7 +55,7 @@ const CourseList: React.FC = () => {
       });
     } else {
       // Otherwise, redirect to Course View screen
-      router.push({
+      router.replace({
         pathname: '../courseView', // Redirect to Course View Screen
         params: {
           courseParams: JSON.stringify(item),
@@ -156,17 +156,30 @@ const styles = StyleSheet.create({
   row: {},
   courseItemp: {
     flexDirection: 'row',
-    backgroundColor: Colors.bgColor,
+    backgroundColor: Colors.bluebg,
     borderRadius: 8,
     margin: 10,
     width: 220,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 5,
   },
   courseItem: {
-    backgroundColor: Colors.bgColor,
+    backgroundColor: Colors.bluebg,
     borderRadius: 8,
     marginLeft: 15,
-    marginVertical: 10,
-    width: 150,
+    marginVertical: 20,
+    marginHorizontal:20,
+    width: 140,
+    shadowColor: "#000",
+  shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+  shadowOpacity: 0.2,
+  shadowRadius: 3,
+  // ✅ Shadow for Android
+  elevation: 5,
   },
   courseImage: {
     width: '100%',

@@ -99,7 +99,7 @@ export default function CourseProgressScreen() {
                 key={course.courseTitle} 
                 style={styles.courseContainer}
                 onPress={() =>
-                  router.push({
+                  router.replace({
                     pathname: '/courseView/courseDetail',
                     params: { courseParams: JSON.stringify(course) },
                   })
@@ -110,13 +110,12 @@ export default function CourseProgressScreen() {
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom:10,
-        backgroundColor:Colors.bgColor,
         borderRadius: 8,
       }}
     >
       <Image
         source={require('@/assets/images/java.png')}
-        style={{ width: 100, height: '100%', borderRadius: 8, marginRight: 15 }}
+        style={{ width: 100, height: 100, borderRadius: 8, marginRight: 15 }}
       />
       <View style={{ flex: 1 }}>
         <Text style={{ fontSize: 18, fontFamily:'outfit-bold'}}>{course.courseTitle}</Text>
@@ -161,10 +160,16 @@ const styles = StyleSheet.create({
     marginHorizontal:10,
     marginBottom: 20,
     padding: 10,
-    backgroundColor: Colors.bgColor,
+    backgroundColor: Colors.bluebg,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: Colors.gray,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 5,
   },
   courseTitle: {
     fontSize: 20,

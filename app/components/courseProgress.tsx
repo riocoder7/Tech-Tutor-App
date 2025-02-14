@@ -51,7 +51,7 @@ export default function EnrolledCoursesScreen() {
   };
 
   const navigateToCourseDetails = (course: Course) => {
-    router.push({
+    router.replace({
       pathname: '/courseView/courseDetail',
       params: { courseParams: JSON.stringify(course) },
     });
@@ -63,28 +63,34 @@ export default function EnrolledCoursesScreen() {
         flexDirection: 'row',
         alignItems: 'center',
         marginVertical: 10,
-        marginHorizontal:20,
+        marginHorizontal: 20,
         padding: 10,
-        backgroundColor:Colors.bgColor,
+        backgroundColor: Colors.bluebg,
         borderRadius: 8,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        // ✅ Shadow for Android
+        elevation: 5,
       }}
       onPress={() => navigateToCourseDetails(item)}
     >
       <Image
         source={require('@/assets/images/java.png')}
-        style={{ width: 100, height: '100%', borderRadius: 8, marginRight: 15 }}
+        style={{ width: 100, height: 100, borderRadius: 8, marginRight: 15 }}
       />
       <View style={{ flex: 1 }}>
-        <Text style={{ fontSize: 18, fontFamily:'outfit-bold'}}>{item.courseTitle}</Text>
-        <Text numberOfLines={2} style={{ color: '#555', fontFamily:'outfit' }}>
+        <Text style={{ fontSize: 18, fontFamily: 'outfit-bold' }}>{item.courseTitle}</Text>
+        <Text numberOfLines={2} style={{ color: '#555', fontFamily: 'outfit' }}>
           {item.description}
         </Text>
-        <View style={{ flexDirection: 'row',  marginVertical: 7 }}>
-        <Ionicons name="book-outline" size={20} color={Colors.primary} />
-        <Text style={{fontSize: 14,fontFamily: 'outfit',color: Colors.primary,marginLeft: 5,}}>
-          {item.noOfChapter ? `${item.noOfChapter} Chapters` : 'No Chapters Available'}
-        </Text>
-      </View>
+        <View style={{ flexDirection: 'row', marginVertical: 7 }}>
+          <Ionicons name="book-outline" size={20} color={Colors.primary} />
+          <Text style={{ fontSize: 14, fontFamily: 'outfit', color: Colors.primary, marginLeft: 5, }}>
+            {item.noOfChapter ? `${item.noOfChapter} Chapters` : 'No Chapters Available'}
+          </Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -98,38 +104,43 @@ export default function EnrolledCoursesScreen() {
   }
 
   return (
-    <View style={{ flex: 1,backgroundColor:'white'}}>
-      <View style={{position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    paddingTop: 15,
-    paddingLeft:15,
-    backgroundColor: "white",
-    zIndex: 10,}}>
-        <View style={{flexDirection: "row",}}>
-        <TouchableOpacity onPress={() => router.back()}>
-        <Ionicons name="arrow-back" size={26} color="black" />
-        </TouchableOpacity >
-        <Text style={{marginLeft:5,fontSize:20,fontFamily:'outfit'}}>My Courses</Text>
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        paddingTop: 15,
+        paddingLeft: 15,
+        backgroundColor: "white",
+        zIndex: 10,
+      }}>
+        <View style={{ flexDirection: "row", }}>
+          <TouchableOpacity onPress={() => router.replace('/(tabs)/Profile')}>
+            <Ionicons name="arrow-back" size={26} color="black" />
+          </TouchableOpacity >
+          <Text style={{ marginLeft: 5, fontSize: 20, fontFamily: 'outfit' }}>My Courses</Text>
         </View>
       </View>
       {enrolledCourses.length === 0 ? (
         <View style={{
           justifyContent: 'center',
-          alignItems: 'center',marginTop:'60%'}}>
+          alignItems: 'center', marginTop: '60%'
+        }}>
           <Entypo style={{
-  }} name="open-book" size={100} color="gray" />
-        <Text style={{fontFamily:'outfit-bold',fontSize: 24,
-  color: "#888", textAlign:'center'}}> You are not enrolled in any courses yet.</Text>
-          </View>
+          }} name="open-book" size={100} color="gray" />
+          <Text style={{
+            fontFamily: 'outfit-bold', fontSize: 24,
+            color: "#888", textAlign: 'center'
+          }}> You are not enrolled in any courses yet.</Text>
+        </View>
       ) : (
-        <View style={{marginTop:60}}>
-        <FlatList
-          data={enrolledCourses}
-          renderItem={renderCourseItem}
-          keyExtractor={(item) => item.courseTitle}
-        />
+        <View style={{ marginTop: 60 }}>
+          <FlatList
+            data={enrolledCourses}
+            renderItem={renderCourseItem}
+            keyExtractor={(item) => item.courseTitle}
+          />
         </View>
       )}
     </View>

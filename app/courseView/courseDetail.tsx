@@ -128,7 +128,7 @@ export default function CourseView() {
                 borderColor: Colors.gray,
               }}
               onPress={() => {
-                router.push({
+                router.replace({
                   pathname: '../courseView/chapterDetail',
                   params: { chapterData: JSON.stringify(chapter), courseParams: JSON.stringify(storedCourse) },
                 });

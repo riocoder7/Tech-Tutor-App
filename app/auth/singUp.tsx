@@ -63,7 +63,7 @@ const SaveUser=async(user: User)=>{
 
       <View style={styles.signInContainer}>
         <Text style={styles.signInText}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => router.push('../auth/signIn')}>
+        <TouchableOpacity onPress={() => router.replace('../auth/signIn')}>
           <Text style={styles.signInLink}>Sign In Here</Text>
         </TouchableOpacity>
       </View>

@@ -112,8 +112,8 @@ export default function CourseView() {
         padding:5,
         backgroundColor: "white",
       }}>
-        <TouchableOpacity  onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={26} color="black" />
+        <TouchableOpacity  onPress={() => router.replace('/(tabs)/Home')}>
+          <Ionicons name="arrow-back" size={30} color="black" />
         </TouchableOpacity >
         {/* <Text style={{ marginLeft: 5, fontSize: 18, fontFamily: 'outfit' }}>Search</Text> */}
       </View>
@@ -179,9 +179,6 @@ export default function CourseView() {
           </View>
         )}
       </ScrollView>
-
-      {/* Fixed Enroll Button */}
-
     </View>
   );
 }

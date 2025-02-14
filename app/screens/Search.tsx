@@ -63,14 +63,14 @@ const Index: React.FC = () => {
     const docSnap = await getDoc(courseRef);
 
     if (docSnap.exists()) {
-      router.push({
+      router.replace({
         pathname: "/courseView/courseDetail", // Redirect to Course Detail Screen
         params: {
           courseParams: JSON.stringify(item),
         },
       });
     } else {
-      router.push({
+      router.replace({
         pathname: "../courseView", // Redirect to Course View Screen
         params: {
           courseParams: JSON.stringify(item),
@@ -84,9 +84,9 @@ const Index: React.FC = () => {
       <View style={styles.header}>
         <View style={styles.arrow}>
           <TouchableOpacity onPress={() => router.replace('/(tabs)/Home')}>
-            <Ionicons name="arrow-back" size={24} color="black" />
+            <Ionicons name="arrow-back" size={30} color="black" />
           </TouchableOpacity>
-          <Text style={{ marginLeft: 5, fontSize: 18, fontFamily: "outfit" }}>
+          <Text style={{ marginLeft: 5, fontSize: 24, fontFamily: "outfit" }}>
             Search
           </Text>
         </View>
@@ -131,7 +131,7 @@ const Index: React.FC = () => {
         keyExtractor={(item) => item.id}
         numColumns={2} // Display in a grid of 2 columns
         columnWrapperStyle={styles.row} // Style for grid rows
-        contentContainerStyle={{ paddingTop: 140, paddingHorizontal: 10 }} // Avoid overlapping with header
+        contentContainerStyle={{ paddingTop: 150, paddingHorizontal: 10 }} // Avoid overlapping with header
         ListEmptyComponent={() => (
           <View>
             <Entypo
@@ -201,31 +201,39 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 5,
-    backgroundColor: Colors.bgColor,
+    backgroundColor: "#dbffff",
     marginRight: 10,
   },
   selectedCategory: {
     backgroundColor: Colors.primary,
   },
   selectedCategoryText: {
-    color: "#fff",
+    color: "white",
     fontFamily: "outfit-bold",
   },
   categoryButtonText: {
     fontSize: 14,
     color: Colors.black,
-    fontFamily: "outfit",
+    fontFamily: "outfit-bold",
   },
   row: {
     flex: 1,
     justifyContent: "space-between",
   },
   courseItem: {
-    backgroundColor: Colors.bgColor,
+    backgroundColor: "#dbffff",
     borderRadius: 8,
+    // marginVertical:20,
+    marginLeft:10,
     marginHorizontal: 10,
-    marginTop: 25,
-    width: 150,
+    marginTop: 30,
+    width: 140,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 5,
   },
   courseImage: {
     width: "100%",

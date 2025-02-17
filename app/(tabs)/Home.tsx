@@ -4,16 +4,18 @@ import CourseList from '../components/courseList';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter, withLayoutContext } from "expo-router";
 import Colors from '@/constants/Colors';
+import useBackHandler from "@/constants/useBackHandler";
 
 export default function Home() {
+  useBackHandler();
   const router = useRouter();
   
   // Render function for each item in the FlatList
   const renderItem = ({ item }: { item: any }) => ( // Specify the type for item
-    <View style={{backgroundColor:'white'}}>
+    <View style={{backgroundColor:'white',marginTop:5}}>
     <TouchableOpacity onPress={() => router.replace('/screens/Search')} style={styles.SearchBar}>
-      <Ionicons name="search-outline" size={24} color="gray" />
-      <Text style={{ fontFamily: 'outfit', paddingTop: 2, marginLeft: 3, fontSize: 16, color: 'gray' }}>
+      <Ionicons name="search-outline" size={24} color={Colors.black} />
+      <Text style={{ fontFamily: 'outfit', paddingTop: 2, marginLeft: 3, fontSize: 16, color: Colors.black }}>
         Search
       </Text>
     </TouchableOpacity>
@@ -41,8 +43,11 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginHorizontal: 8,
     borderRadius: 10,
-    elevation: 1,
-    borderWidth: 1,
-    borderColor: Colors.gray,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 2,
   },
 });

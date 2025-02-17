@@ -110,16 +110,23 @@ export default function EnrolledCoursesScreen() {
         top: 0,
         left: 0,
         right: 0,
+        paddingBottom:10,
         paddingTop: 15,
         paddingLeft: 15,
         backgroundColor: "white",
         zIndex: 10,
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        // ✅ Shadow for Android
+        elevation: 5,
       }}>
         <View style={{ flexDirection: "row", }}>
           <TouchableOpacity onPress={() => router.replace('/(tabs)/Profile')}>
-            <Ionicons name="arrow-back" size={26} color="black" />
+            <Ionicons name="arrow-back" size={30} color="black" />
           </TouchableOpacity >
-          <Text style={{ marginLeft: 5, fontSize: 20, fontFamily: 'outfit' }}>My Courses</Text>
+          <Text style={{ marginLeft: 5, fontSize: 24, fontFamily: 'outfit' }}>My Courses</Text>
         </View>
       </View>
       {enrolledCourses.length === 0 ? (
@@ -135,7 +142,7 @@ export default function EnrolledCoursesScreen() {
           }}> You are not enrolled in any courses yet.</Text>
         </View>
       ) : (
-        <View style={{ marginTop: 60 }}>
+        <View style={{ marginTop: 70 }}>
           <FlatList
             data={enrolledCourses}
             renderItem={renderCourseItem}

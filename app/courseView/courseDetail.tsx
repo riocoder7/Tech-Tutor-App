@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image, ActivityIndicator, Alert } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Colors from '@/constants/Colors';
@@ -26,7 +26,7 @@ export default function CourseView() {
   const router = useRouter();
   const [storedCourse, setStoredCourse] = useState<Course | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true); // ✅ Added loading state
+  const [loading, setLoading] = useState(true);
 
   let course: Course | null = null;
   if (typeof courseParams === 'string') {
@@ -53,7 +53,6 @@ export default function CourseView() {
     }
   }, [course, userId]);
 
-  // ✅ Fetch course progress from Firestore
   const loadProgress = async (course: Course, userId: string) => {
     try {
       const courseRef = doc(db, `users/${userId}/enrolledCourses`, course.courseTitle);
@@ -67,24 +66,36 @@ export default function CourseView() {
     } catch (error) {
       console.error('Error loading course progress from Firestore:', error);
     } finally {
-      setLoading(false); // ✅ Stop loading when data is fetched
+      setLoading(false);
     }
   };
 
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-        <ActivityIndicator size="large" color={Colors.primary} /> 
+        <ActivityIndicator size="large" color={Colors.primary} />
       </View>
     );
   }
+
+  const handleChapterPress = (index: number, chapter: Chapter) => {
+    if (index > 0 && !storedCourse?.chapters[index - 1].completed) {
+      Alert.alert('Access Denied', 'Complete previous chapters first.');
+      return;
+    }
+
+    router.replace({
+      pathname: '../courseView/chapterDetail',
+      params: { chapterData: JSON.stringify(chapter), courseParams: JSON.stringify(storedCourse) },
+    });
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <ScrollView>
         <View style={{ flexDirection: 'row', padding: 5, backgroundColor: 'white' }}>
           <TouchableOpacity onPress={() => router.replace('/(tabs)/Home')}>
-            <Ionicons name="arrow-back" size={26} color="black" />
+            <Ionicons name="arrow-back" size={30} color={Colors.black} />
           </TouchableOpacity>
         </View>
         <View>
@@ -94,14 +105,7 @@ export default function CourseView() {
           </Text>
           <View style={{ flexDirection: 'row', marginLeft: 7 }}>
             <Ionicons name="book-outline" size={22} color={Colors.primary} />
-            <Text
-              style={{
-                fontSize: 18,
-                fontFamily: 'outfit',
-                color: Colors.primary,
-                marginLeft: 5,
-              }}
-            >
+            <Text style={{ fontSize: 18, fontFamily: 'outfit', color: Colors.primary, marginLeft: 5 }}>
               {storedCourse?.noOfChapter} Chapters
             </Text>
           </View>
@@ -122,17 +126,18 @@ export default function CourseView() {
                 padding: 10,
                 backgroundColor: Colors.bgColor,
                 marginHorizontal: 10,
-                marginVertical: 5,
+                marginVertical: 7,
                 borderRadius: 10,
                 borderWidth: 1,
                 borderColor: Colors.gray,
+                shadowColor: "#000",
+  shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+  shadowOpacity: 0.2,
+  shadowRadius: 3,
+  // ✅ Shadow for Android
+  elevation: 5,
               }}
-              onPress={() => {
-                router.replace({
-                  pathname: '../courseView/chapterDetail',
-                  params: { chapterData: JSON.stringify(chapter), courseParams: JSON.stringify(storedCourse) },
-                });
-              }}
+              onPress={() => handleChapterPress(index, chapter)}
             >
               <Text style={{ fontSize: 16, fontFamily: 'outfit', marginLeft: 5, width: '90%' }}>
                 {index + 1}. {chapter.chapterName}

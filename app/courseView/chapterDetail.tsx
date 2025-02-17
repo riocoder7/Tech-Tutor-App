@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 import { auth, db } from '@/config/firebaseConfig';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 interface Topic {
   topic: string;
@@ -135,6 +136,11 @@ export default function ChapterDetail() {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white', padding: 15 }}>
+      {/* <View style={{ flexDirection: 'row', backgroundColor: 'white' }}> */}
+          <TouchableOpacity onPress={() => router.replace('/(tabs)/Home')}>
+            <Ionicons name="arrow-back" size={30} color={Colors.black} />
+          </TouchableOpacity>
+        {/* </View> */}
       {/* Progress Bar */}
       <View style={{ height: 5, backgroundColor: Colors.gray, marginVertical: 20, width: '100%' }}>
         <View style={{ height: '100%', backgroundColor: Colors.primary, width: progressBarWidth }} />
@@ -160,19 +166,25 @@ export default function ChapterDetail() {
         )}
       </ScrollView>
 
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
+      <View style={{ flexDirection: 'row', marginTop: 10 }}>
         {/* Previous Button for middle topics */}
         {currentTopicIndex > 0 && currentTopicIndex < totalTopics - 1 && (
           <TouchableOpacity
             style={{
               backgroundColor: Colors.primary,
-              padding: 15,
+              padding: 10,
               borderRadius: 10,
               alignItems: 'center',
+              shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 2,
             }}
             onPress={handlePreviousTopic}
           >
-            <Text style={{ color: 'white', fontSize: 18, fontFamily: 'outfit-bold' }}>Previous</Text>
+            <Text style={{ color: 'white', fontSize: 24, fontFamily: 'outfit-bold' }}>Previous</Text>
           </TouchableOpacity>
         )}
 
@@ -180,15 +192,21 @@ export default function ChapterDetail() {
         {currentTopicIndex < totalTopics - 1 && (
           <TouchableOpacity
           style={{
-            marginLeft:'30%',
+            marginLeft:'25%',
             backgroundColor: Colors.primary,
-            padding: 15,
+            padding: 10,
             borderRadius: 10,
             alignItems: 'center',
+            shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 2,
           }}
           onPress={handleNextTopic}
           >
-            <Text style={{ color: 'white', fontSize: 18, fontFamily: 'outfit-bold' }}>Next Topic</Text>
+            <Text style={{ color: 'white', fontSize: 24, fontFamily: 'outfit-bold' }}>Next Topic</Text>
           </TouchableOpacity>
         )}
 
@@ -198,9 +216,15 @@ export default function ChapterDetail() {
             style={{
               width:'100%',
               backgroundColor: Colors.primary,
-              padding: 15,
+              padding: 10,
               borderRadius: 10,
               alignItems: 'center',
+              shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 2,
             }}
             onPress={handleFinish}
             disabled={loading} // Disable the button when loading
@@ -208,7 +232,7 @@ export default function ChapterDetail() {
             {loading ? (
               <ActivityIndicator size="small" color="white" />
             ) : (
-              <Text style={{ color: 'white', fontSize: 18, fontFamily: 'outfit-bold' }}>Finish</Text>
+              <Text style={{ color: 'white', fontSize: 24, fontFamily: 'outfit-bold' }}>Finish</Text>
             )}
           </TouchableOpacity>
         )}

@@ -45,7 +45,7 @@ const Index: React.FC = () => {
   return (
     <View style={styles.container}>
       <Image source={require("@/assets/images/logo.png")} style={styles.logo} />
-      <Text style={styles.text}>Welcome to TechTutor</Text>
+      <Text style={styles.text}>Welcome to CodeSpark</Text>
       <Text style={styles.subtitle}>Let's get your learning journey started.</Text>
     </View>
   );

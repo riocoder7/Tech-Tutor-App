@@ -9,7 +9,9 @@ import { auth, db } from '@/config/firebaseConfig';
 import {UserDetailContext} from '@/context/UserDetailContext';
 import { User } from "firebase/auth";
 import Colors from '@/constants/Colors';
+import useBackHandler from "@/constants/useBackHandler";
 export default function SignUp() {
+  useBackHandler();
   const router = useRouter();
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');

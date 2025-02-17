@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Tech_Tutor",
-    "slug": "Tech_Tutor",
+    "name": "CodeSpark",
+    "slug": "CodeSpark",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

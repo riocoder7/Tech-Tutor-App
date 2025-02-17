@@ -10,8 +10,10 @@ import { ActivityIndicator } from 'react-native';
 import { doc } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
 import Colors from '@/constants/Colors';
+import useBackHandler from "@/constants/useBackHandler";
 
 export default function SignIn() {
+  useBackHandler();
   const router = useRouter();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');

@@ -10,28 +10,38 @@ export default function TabLayout() {
     <Tabs screenOptions={{
         tabBarActiveTintColor: Colors.primary,  // Active icon color
         tabBarInactiveTintColor: Colors.black,  
-        tabBarStyle: {
-            backgroundColor: 'white',
-            elevation: 0, // Remove shadow on Android
-            shadowOpacity: 0, // Remove shadow on iOS
-            borderTopWidth: 0, // Remove the border if necessary
-          },
-          headerStyle: {
-            // backgroundColor: Col,  // Optional: Set header background color
-            elevation: 0,  // Remove shadow on Android
-            shadowOpacity: 0,  // Set shadow height to 0
-          },
+    //     tabBarStyle: {
+    //         backgroundColor: 'white',
+    //         shadowColor: "#000",
+    // shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    // shadowOpacity: 0.2,
+    // shadowRadius: 3,
+    // // ✅ Shadow for Android
+    // elevation: 2,
+    //       },
+        //   headerStyle: {
+        //     // backgroundColor: Col,  // Optional: Set header background color
+        //     elevation: 2,  // Remove shadow on Android
+        //     shadowOpacity: 2,  // Set shadow height to 0
+        //   },
           
             // Tab bar background
       }}>
         <Tabs.Screen name='Home' options={{
             
             headerTitle: () => (
+                <View style={{flexDirection:'row'}}>
                 <Text style={{
                     fontSize:26,
                     fontFamily:'outfit-bold',
-                    color:Colors.primary,
-                }}>TechTutor</Text>
+                    color:"#00b3e8",
+                }}>Code</Text>
+                <Text style={{
+                    fontSize:26,
+                    fontFamily:'outfit-bold',
+                    color:'#a300ef',
+                }}>Spark</Text>
+                </View>
             ),
             headerRight: () => (
                 <TouchableOpacity style={{marginRight:15}}>
@@ -42,20 +52,28 @@ export default function TabLayout() {
             tabBarLabel: 'Home'
         }}/>
         <Tabs.Screen name='Explore' options={{
+            headerTitle: ()=>(
+                <Text style={{fontFamily:'outfit-bold' ,fontSize:26,color:Colors.primary}}>Explore</Text>
+            ),
             tabBarIcon: ({color,size})=> <Ionicons name="paper-plane-outline" size={size} color={color} />,
             tabBarLabel: 'Explore'
         }}/>
         <Tabs.Screen name='Progress' options={{
             headerLeft: ()=>(
-                <View style={{marginLeft:5}}>
-                <MaterialCommunityIcons name="google-analytics" size={24} color={Colors.black} />
+                <View style={{marginLeft:20}}>
+                <MaterialCommunityIcons name="google-analytics" size={24} color={Colors.primary} />
                 </View>
+            ),
+            headerTitle: ()=>(
+                <Text style={{fontFamily:'outfit-bold' ,fontSize:26,color:Colors.primary}}>Progress</Text>
             ),
             tabBarIcon: ({color,size})=> <MaterialCommunityIcons name="google-analytics" size={size} color={color} />,
             tabBarLabel: 'Progress'
         }}/>
         <Tabs.Screen name='Profile' options={{
-            tabBarStyle: { display: "none" },
+            headerTitle: ()=>(
+                <Text style={{fontFamily:'outfit-bold' ,fontSize:26,color:Colors.primary}}>Profile</Text>
+            ),
             tabBarIcon: ({color,size})=> <Ionicons name="person-circle-outline" size={size} color={color} />,
             tabBarLabel: 'Profile'
         }}/>

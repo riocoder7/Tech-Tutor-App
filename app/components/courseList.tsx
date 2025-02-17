@@ -47,7 +47,7 @@ const CourseList: React.FC = () => {
 
     // If the course exists in enrolledCourses, redirect to Course Details screen
     if (docSnap.exists()) {
-      router.replace({
+      router.push({
         pathname: '/courseView/courseDetail', // Redirect to Course Detail Screen
         params: {
           courseParams: JSON.stringify(item),
@@ -55,7 +55,7 @@ const CourseList: React.FC = () => {
       });
     } else {
       // Otherwise, redirect to Course View screen
-      router.replace({
+      router.push({
         pathname: '../courseView', // Redirect to Course View Screen
         params: {
           courseParams: JSON.stringify(item),
@@ -111,8 +111,8 @@ const CourseList: React.FC = () => {
         <>
           {/* Popular Courses Section */}
           {popularCourses.length > 0 && (
-            <View>
-              <Text style={styles.header}>Popular Courses</Text>
+            <View style={{marginTop:15 }}>
+              <Text style={styles.header}>Must Try Courses</Text>
               <FlatList
                 data={popularCourses}
                 renderItem={renderCourseItemp}

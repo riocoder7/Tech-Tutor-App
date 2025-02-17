@@ -162,8 +162,8 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: Colors.bluebg,
     borderRadius: 10,
-    borderWidth: 1,
-    borderColor: Colors.gray,
+    // borderWidth: 1,
+    // borderColor: Colors.gray,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
     shadowOpacity: 0.2,
@@ -184,11 +184,17 @@ const styles = StyleSheet.create({
   progressBarBackground: {
     height: 8,
     backgroundColor: 'white',
-    borderWidth:1,
-    borderColor:Colors.primary,
+    // borderWidth:1,
+    // borderColor:Colors.primary,
     borderRadius: 5,
     marginBottom: 10,
     overflow: 'hidden',
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 }, // Shadow at the bottom
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    // ✅ Shadow for Android
+    elevation: 2,
   },
   progressBarFill: {
     height: '100%',

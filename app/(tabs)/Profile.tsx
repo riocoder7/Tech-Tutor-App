@@ -105,7 +105,7 @@ export default function ProfileScreen() {
             <Text style={styles.menuItemText}>AI Support</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push("/screens/Compiler")}>
           <View style={styles.menuItem}>
             <FontAwesome5 name="laptop-code" size={24} color="black" />
             <Text style={styles.menuItemText}>Compiler</Text>

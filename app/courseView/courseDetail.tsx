@@ -84,7 +84,7 @@ export default function CourseView() {
       return;
     }
 
-    router.replace({
+    router.push({
       pathname: '../courseView/chapterDetail',
       params: { chapterData: JSON.stringify(chapter), courseParams: JSON.stringify(storedCourse) },
     });

@@ -9,7 +9,7 @@ export default function Explore() {
   return (
     <View style={styles.container}>
       {/* AI Support Section */}
-      <TouchableOpacity style={styles.card} onPress={() => router.replace('/screens/Chatbot')}>
+      <TouchableOpacity style={styles.card} onPress={() => router.push('/screens/Chatbot')}>
         <Image source={require('@/assets/images/chatbot.jpeg')} style={styles.image} />
         <View style={{padding:10,}}>
         <Text style={styles.title}>AI Support</Text>
@@ -18,8 +18,8 @@ export default function Explore() {
       </TouchableOpacity>
 
       {/* Quiz Section */}
-      <TouchableOpacity style={styles.card} onPress={() => router.replace('/screens/Chatbot')}>
-        <Image source={require('@/assets/images/chatbot.jpeg')} style={styles.image} />
+      <TouchableOpacity style={styles.card} onPress={() => router.push('/screens/Quizz')}>
+        <Image source={require('@/assets/images/quizz.jpeg')} style={styles.image} />
         <View style={{padding:10,}}>
         <Text style={styles.title}>Quiz Challenge</Text>
         <Text style={styles.subtitle}>Test your knowledge with fun and interactive quizzes.</Text>

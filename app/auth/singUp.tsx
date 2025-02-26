@@ -10,6 +10,7 @@ import {UserDetailContext} from '@/context/UserDetailContext';
 import { User } from "firebase/auth";
 import Colors from '@/constants/Colors';
 import useBackHandler from "@/constants/useBackHandler";
+
 export default function SignUp() {
   useBackHandler();
   const router = useRouter();
@@ -19,34 +20,61 @@ export default function SignUp() {
   const {userDetail,setUserDetail}=useContext(UserDetailContext);
   const [loading, setLoading] = useState(false);
 
-const CreateNewAccount=()=>{
-  setLoading(true)
-createUserWithEmailAndPassword(auth, email, password)
-  .then(async(resp) => {
-    // Signed up 
-    const user=resp.user;
-    console.log(user);
-    await SaveUser(user);
-    setLoading(false);
-    router.replace('../Home')
-  })
-  .catch(e=>{
-    console.log(e.message)
-    setLoading(false);
-            ToastAndroid.show('Incorrect Email & Password', ToastAndroid.BOTTOM)
-  })
-}
+  const validateForm = () => {
+    if (!fullName) {
+      ToastAndroid.show('Full Name required', ToastAndroid.BOTTOM);
+      return false;
+    }
+    if (/\d/.test(fullName)) {
+      ToastAndroid.show('Invalid Name Format', ToastAndroid.BOTTOM);
+      return false;
+    }
+    if (!email.includes('@')) {
+      ToastAndroid.show('Invalid Email Format', ToastAndroid.BOTTOM);
+      return false;
+    }
+    if (password.length < 6) {
+      ToastAndroid.show('Password too short', ToastAndroid.BOTTOM);
+      return false;
+    }
+    if (password.length > 256) {
+      ToastAndroid.show('Password too long', ToastAndroid.BOTTOM);
+      return false;
+    }
+    return true;
+  };
 
-const SaveUser=async(user: User)=>{
-  const data={
-    name:fullName,
-    email:email,
-    password:password,
-    uid:user?.uid
-  }
-  await setDoc(doc(db,'users',email), data)
-  setUserDetail(data);
-}
+  const CreateNewAccount = () => {
+    if (!validateForm()) {
+      return;
+    }
+    setLoading(true);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(async(resp) => {
+        // Signed up 
+        const user=resp.user;
+        console.log(user);
+        await SaveUser(user);
+        setLoading(false);
+        router.replace('../Home')
+      })
+      .catch(e=>{
+        console.log(e.message)
+        setLoading(false);
+        ToastAndroid.show('Incorrect Email & Password', ToastAndroid.BOTTOM)
+      })
+  };
+
+  const SaveUser = async(user: User) => {
+    const data = {
+      name: fullName,
+      email: email,
+      password: password,
+      uid: user?.uid
+    };
+    await setDoc(doc(db,'users',email), data);
+    setUserDetail(data);
+  };
 
   return (
     <View style={styles.container}>

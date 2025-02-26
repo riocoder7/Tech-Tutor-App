@@ -131,7 +131,7 @@ export default function CourseView() {
               {course.noOfChapter} Chapters
             </Text>
           </View>
-          <Text style={{ fontSize: 20, fontFamily: 'outfit-bold', marginLeft: 5,marginVertical:5, }}>Description:</Text>
+          <Text style={{ fontSize: 20, fontFamily: 'outfit-bold', marginLeft: 5,marginVertical:3, }}>Description:</Text>
           <Text style={{ fontFamily: 'outfit', fontSize: 18, marginLeft: 15,marginBottom:8 }}>{course.description}</Text>
         </View>
         <TouchableOpacity

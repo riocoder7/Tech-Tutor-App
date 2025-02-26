@@ -61,19 +61,17 @@ export default function TabLayout() {
         <Tabs.Screen name='Progress' options={{
             headerLeft: ()=>(
                 <View style={{marginLeft:20}}>
-                <MaterialCommunityIcons name="google-analytics" size={24} color={Colors.primary} />
+                <MaterialCommunityIcons name="progress-check" size={24} color={Colors.primary} />
                 </View>
             ),
             headerTitle: ()=>(
-                <Text style={{fontFamily:'outfit-bold' ,fontSize:26,color:Colors.primary}}>Progress</Text>
+                <Text style={{fontFamily:'outfit-bold' ,fontSize:24,color:Colors.primary}}>Progress</Text>
             ),
-            tabBarIcon: ({color,size})=> <MaterialCommunityIcons name="google-analytics" size={size} color={color} />,
+            tabBarIcon: ({color,size})=>  <MaterialCommunityIcons name="progress-check" size={size} color={color} />,
             tabBarLabel: 'Progress'
         }}/>
         <Tabs.Screen name='Profile' options={{
-            headerTitle: ()=>(
-                <Text style={{fontFamily:'outfit-bold' ,fontSize:26,color:Colors.primary}}>Profile</Text>
-            ),
+            headerShown: false,
             tabBarIcon: ({color,size})=> <Ionicons name="person-circle-outline" size={size} color={color} />,
             tabBarLabel: 'Profile'
         }}/>

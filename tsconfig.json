@@ -6,7 +6,8 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "jsx": "react" // Added jsx option
   },
   "include": [
     "**/*.ts",

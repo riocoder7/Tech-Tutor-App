@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
-import { app } from '@/config/firebaseConfig'; // Adjust the import path based on your setup
+import { app } from '@/config/firebaseConfig';
 import { useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -17,7 +17,7 @@ const Quizz: React.FC = () => {
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'quizzes')); // 'quizzes' collection
+        const querySnapshot = await getDocs(collection(db, 'quizzes'));
         const fetchedQuizzes: any[] = [];
         querySnapshot.forEach((doc) => {
           fetchedQuizzes.push({ id: doc.id, ...doc.data() });
@@ -36,7 +36,7 @@ const Quizz: React.FC = () => {
   const handleQuizPress = (quiz: any) => {
     router.push({
       pathname: '/screens/quizzDetail',
-      params: { quizParams: JSON.stringify(quiz) },
+      params: { quizId: quiz.id },
     });
   };
 
@@ -80,23 +80,10 @@ const Quizz: React.FC = () => {
   );
 };
 
-// Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  header: {
-    height: 60,
-    backgroundColor: Colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 4,
-  },
-  headerText: {
-    fontSize: 20,
-    fontFamily: 'outfit-bold',
-    color: '#fff',
   },
   list: {
     paddingHorizontal: 10,
@@ -109,7 +96,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.bluebg,
     borderRadius: 10,
     margin: 10,
-    // padding: 10,
     alignItems: 'center',
     width: '45%',
     shadowColor: '#000',

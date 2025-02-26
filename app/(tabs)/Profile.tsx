@@ -81,7 +81,7 @@ export default function ProfileScreen() {
 
       {/* Menu List */}
       <View style={styles.menu}>
-        <TouchableOpacity onPress={() => router.push("/(tabs)/Progress")}>
+        <TouchableOpacity onPress={() => router.push('/screens/myCourse')}>
           <View style={styles.menuItem}>
             <Ionicons name="bookmarks-outline" size={24} color="black" />
             <Text style={styles.menuItemText}>My Courses</Text>
@@ -93,13 +93,13 @@ export default function ProfileScreen() {
             <Text style={styles.menuItemText}>Progress</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push("/screens/Quizz")}>
           <View style={styles.menuItem}>
             <MaterialIcons name="quiz" size={24} color="black" />
             <Text style={styles.menuItemText}>Quiz Challenge</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => router.replace("/screens/Chatbot")}>
+        <TouchableOpacity onPress={() => router.push("/screens/Chatbot")}>
           <View style={styles.menuItem}>
             <Octicons name="dependabot" size={24} color="black" />
             <Text style={styles.menuItemText}>AI Support</Text>

@@ -4,7 +4,7 @@
     "slug": "CodeSpark",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/logo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.mr_sanak.CodeSpark"
     },
     "web": {
       "bundler": "metro",
@@ -38,8 +39,14 @@
       "typedRoutes": true
     },
     "extra": {
-      "JUDGE0_API_KEY": "de5e05f3e6mshe002c4fa7cc298dp16d096jsn9b70bf4e91a5",
-      "GEMINI_API_KEY": "AIzaSyAaOtYchs32VubOCP0qk7hVoaI1BY9e9F0"
+      "JUDGE0_API_KEY": "",
+      "GEMINI_API_KEY": "",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f8458fa5-00a3-4c21-a0d7-098cfd564b9d"
+      }
     }
   }
 }

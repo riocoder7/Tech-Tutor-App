@@ -22,10 +22,10 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
       {/* <StatusBar hidden={true} /> */}
-      {/* <StatusBar
+      <StatusBar
      hidden={false} 
      barStyle={theme === 'dark' ? 'light-content' : 'dark-content'} 
-     backgroundColor={theme === 'dark' ? '#121212' : '#FFF'} /> */}
+     backgroundColor={theme === 'dark' ? '#121212' : '#FFF'} />
         <Stack screenOptions={{
           headerShown: false,
           

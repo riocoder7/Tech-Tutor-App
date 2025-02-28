@@ -30,8 +30,8 @@ const Chatbot: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const flatListRef = useRef<FlatList<Message>>(null);
 
-  const GEMINI_API_KEY = Constants.expoConfig?.extra?.GEMINI_API_KEY || 'AIzaSyByweqMe8GlV6phTmKSmH5pS-RP33QDr-c';
-  const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+  const GEMINI_API_KEY = Constants.expoConfig?.extra?.GEMINI_API_KEY;
+  const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   const sendMessage = async () => {
     if (!inputText.trim()) return;
@@ -119,7 +119,7 @@ const Chatbot: React.FC = () => {
       {/* Back Button & Header */}
       <View style={styles.headerContainer}>
         <View style={{ flexDirection: "row", alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => router.replace('/(tabs)/Explore')}>
+          <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="arrow-back" size={30} color="black" />
           </TouchableOpacity>
           <Text style={styles.headerText}>AI Support</Text>

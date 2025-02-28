@@ -123,7 +123,7 @@ export default function EnrolledCoursesScreen() {
         elevation: 5,
       }}>
         <View style={{ flexDirection: "row", }}>
-          <TouchableOpacity onPress={() => router.replace('/(tabs)/Profile')}>
+          <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="arrow-back" size={30} color="black" />
           </TouchableOpacity >
           <Text style={{ marginLeft: 5, fontSize: 24, fontFamily: 'outfit' }}>My Courses</Text>

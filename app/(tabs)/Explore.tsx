@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 export default function Explore() {
   const router = useRouter();
@@ -23,6 +24,27 @@ export default function Explore() {
         <View style={{padding:10,}}>
         <Text style={styles.title}>Quiz Challenge</Text>
         <Text style={styles.subtitle}>Test your knowledge with fun and interactive quizzes.</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card} onPress={() => router.push('/screens/Compiler')}>
+      <View style={{
+        justifyContent:'center',
+        width: 120,
+    // height: "100%",
+    paddingLeft:10,
+    borderTopLeftRadius:15,
+    borderBottomLeftRadius:15,
+    marginRight:10,}}>
+
+      <FontAwesome5 name="laptop-code" size={80} color="black"/>
+      </View>
+        <View style={{padding:10,}}>
+        <Text style={styles.title}>Compiler</Text>
+        <Text style={{width:'40%',
+    fontFamily:'outfit',
+    fontSize: 16,
+    color:Colors.dgray,
+    marginTop: 5,}}>Write, compile, and run your code in multiple programming languages.</Text>
         </View>
       </TouchableOpacity>
     </View>

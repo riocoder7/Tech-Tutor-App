@@ -50,12 +50,12 @@ const Quizz: React.FC = () => {
   return (
     <View style={styles.container}>
       {/* Fixed Header */}
-      <View style={{ flexDirection: 'row', padding: 5, backgroundColor: 'white',shadowColor: '#000',
+      <View style={{ flexDirection: 'row', padding: 10, backgroundColor: 'white',shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
-    elevation: 5,marginBottom:10, }}>
-          <TouchableOpacity onPress={() => router.replace('/(tabs)/Home')}>
+    elevation: 5, }}>
+          <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="arrow-back" size={30} color={Colors.black} />
           </TouchableOpacity>
           <Text style={{paddingLeft:5, fontFamily:'outfit-bold',fontSize:24}}>Quizzes</Text>
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
   list: {
     paddingHorizontal: 10,
     paddingBottom: 20,
+    marginTop:10,
   },
   row: {
     justifyContent: 'space-between',

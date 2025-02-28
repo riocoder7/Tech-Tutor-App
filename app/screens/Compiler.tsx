@@ -152,12 +152,12 @@ const CompilerScreen: React.FC = () => {
     setOutput('');
     try {
       const response = await fetch(
-        'https://judge0-ce.p.rapidapi.com/submissions?base64_encoded=false&wait=true',
+        'https://judge029.p.rapidapi.com/submissions?base64_encoded=false&wait=true',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'x-rapidapi-host': 'judge0-ce.p.rapidapi.com',
+            'x-rapidapi-host': 'judge029.p.rapidapi.com',
             'x-rapidapi-key': '' // Replace with your API key
           },
           body: JSON.stringify({

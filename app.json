@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "CodeSpark",
-    "slug": "CodeSpark",
+    "name": "codespark",
+    "slug": "codespark",
+    "owner": "rio.coder",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
@@ -45,7 +46,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "f8458fa5-00a3-4c21-a0d7-098cfd564b9d"
+        "projectId": "2c802336-6616-4f62-adb8-754a4e11fedd"
       }
     }
   }

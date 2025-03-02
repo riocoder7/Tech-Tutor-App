@@ -99,7 +99,7 @@ export default function CourseView() {
           </TouchableOpacity>
         </View>
         <View>
-          <Image source={require('@/assets/images/java.png')} style={{ width: '100%', height: 200 }} />
+          <Image source={require('@/assets/images/javascript_icon.webp')} style={{ width: '100%', height: 200 }} />
           <Text style={{ fontSize: 24, fontFamily: 'outfit-bold', marginVertical: 5, marginLeft: 5 }}>
             {storedCourse?.courseTitle}
           </Text>

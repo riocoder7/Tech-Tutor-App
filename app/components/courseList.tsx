@@ -69,7 +69,7 @@ const CourseList: React.FC = () => {
       style={styles.courseItem}
       onPress={() => handleCoursePress(item)} // Handle course press
     >
-      <Image source={require('@/assets/images/java.png')} style={styles.courseImage} />
+      <Image source={require('@/assets/images/javascript_icon.webp')} style={styles.courseImage} />
       <Text style={styles.courseTitle}>{item.courseTitle || 'No Title Available'}</Text>
       <View style={{ flexDirection: 'row', marginLeft: 7, marginBottom: 7 }}>
         <Ionicons name="book-outline" size={20} color={Colors.primary} />
@@ -85,7 +85,7 @@ const CourseList: React.FC = () => {
       style={styles.courseItemp}
       onPress={() => handleCoursePress(item)} // Handle course press
     >
-      <Image source={require('@/assets/images/java.png')} style={styles.courseImagep} />
+      <Image source={require('@/assets/images/javascript_icon.webp')} style={styles.courseImagep} />
       <View>
         <Text style={styles.courseTitlep}>{item.courseTitle || 'No Title Available'}</Text>
         <View style={{ flexDirection: 'row', marginLeft: 7, marginBottom: 7 }}>

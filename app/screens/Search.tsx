@@ -149,7 +149,7 @@ const Index: React.FC = () => {
             onPress={() => handleCoursePress(item)}
           >
             <Image
-              source={require("@/assets/images/java.png")}
+              source={require("@/assets/images/javascript_icon.webp")}
               style={styles.courseImage}
             />
             <Text style={styles.courseTitle}>

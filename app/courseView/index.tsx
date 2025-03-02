@@ -118,7 +118,7 @@ export default function CourseView() {
         {/* <Text style={{ marginLeft: 5, fontSize: 18, fontFamily: 'outfit' }}>Search</Text> */}
       </View>
         <View>
-          <Image source={require('@/assets/images/java.png')} style={{ width: '100%', height: 200 }} />
+          <Image source={require('@/assets/images/javascript_icon.webp')} style={{ width: '100%', height: 200 }} />
           <Text style={{ fontSize: 24, fontFamily: 'outfit-bold', marginVertical: 5, marginLeft: 5, }}>{course.courseTitle}</Text>
           <View style={{ flexDirection: 'row', marginLeft: 7, }}>
             <Ionicons name="book-outline" size={22} color={Colors.primary} />

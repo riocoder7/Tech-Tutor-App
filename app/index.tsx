@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 20,
     marginBottom: 20,
+    
   },
   subtitle: {
     fontSize: 16,

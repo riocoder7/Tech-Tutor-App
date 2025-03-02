@@ -114,7 +114,7 @@ export default function CourseProgressScreen() {
       }}
     >
       <Image
-        source={require('@/assets/images/java.png')}
+        source={require('@/assets/images/javascript_icon.webp')}
         style={{ width: 100, height: 100, borderRadius: 8, marginRight: 15 }}
       />
       <View style={{ flex: 1 }}>
